@@ -1,0 +1,11 @@
+user:
+    resource: "@UserBundle/Controller/"
+    type:     annotation
+    prefix:   /user
+
+platform:
+    resource: "@PlatformBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"

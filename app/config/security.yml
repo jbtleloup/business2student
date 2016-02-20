@@ -1,0 +1,27 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        in_memory:
+            memory: ~
+        main:
+            id: fos_user.user_provider.username
+
+    firewalls:
+        # … le pare-feu « dev »
+        # Firewall principal pour le reste de notre site
+        main:
+            pattern:        ^/
+            anonymous:      true
+            provider:       main
+            form_login:
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
+            logout:
+                path:       fos_user_security_logout
+                target:     /
+
+    encoders:
+        UserBundle\Entity\User: sha512
